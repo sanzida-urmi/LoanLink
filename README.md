@@ -1,16 +1,46 @@
-# React + Vite
+Microloan Request & Approval Tracker System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+LoanLink is a web-based microloan request, review & approval management system.
+ Many small financial organizations, NGOs, and microloan providers struggle to maintain loan applications, verification, approvals, EMI schedules, and repayments in one streamlined system.
 
-Currently, two official plugins are available:
+ Live URL :
+ server URL: 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+ key Features
+ 1.User Registration & Login (JWT Auth)
+ 2. Apply for loans
+ 3.Loan status tracking
+ 4. Admin panel
+ 5.View all loans
+ 6. approve/ rejevt/delete loan
+ 7.Manager panel
+ 8.Secure axios interceptors
+ 9. role based protected routes
+ 10. CVS export for applied loans
+ 11. Responsive UI
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ NPM Packages Used
+ Frontend
+ 1.React
+ 2.React Router DOM
+ 3.Axios
+ 4.Tanstack
+ 5.React Router Hook
+ 6.React Hot Toast
+ 7.DaisyUI
+ 8.Tailwind
+
+ Backend
+ 1.Express
+ 2.MongoDB
+ 3.JSON Web Token
+ 4.CORS
+ 5.dotenv
+
+
+ How to run locally
+ npm install
+ npm run dev
