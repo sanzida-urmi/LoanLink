@@ -1,4 +1,4 @@
-import { ScaleLoader } from 'react-spinners'
+import { MoonLoader, ScaleLoader } from 'react-spinners'
 
 const LoadingSpinner = ({ smallHeight }) => {
   return (
@@ -9,7 +9,7 @@ const LoadingSpinner = ({ smallHeight }) => {
       justify-center 
       items-center `}
     >
-      <ScaleLoader size={100} color='lime' />
+      <MoonLoader size={100} color="#15b1ee" />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import {  useLocation, useNavigate, Link } from 'react-router'
 import useAuth from '../hooks/useAuth'
 import { TbFidgetSpinner } from 'react-icons/tb'
+import { FaArrowRotateRight } from "react-icons/fa6";
 import { toast } from 'react-hot-toast'
 import { FcGoogle } from 'react-icons/fc'
 import { useForm } from 'react-hook-form'
@@ -12,10 +13,11 @@ import { imageUpload, saveOrUpdateUser } from '../utils'
 
 
 function SignUp() {
-      const { createUser, updateUserProfile, signInWithGoogle, loading } = useAuth()
+      const { createUser, updateUserProfile, signInWithGoogle, loading,setMyrole } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const from = location.state || '/'
+
 
      const {
     register,
@@ -28,24 +30,25 @@ function SignUp() {
       const onSubmit = async data =>{
         console.log("submit")
 
-const {name, image,email, password} = data;
-const imgFile = image[0];
+const {name, image,email,role, password} = data;
+setMyrole(role);
+// const imgFile = image[0];
 console.log(data);
 
  try {
 
   
-  const imgURL = await imageUpload(imgFile);
-  console.log(imgURL)
+  // const imgURL = await imageUpload(imgFile);
+  // console.log(imgURL)
 
         //2. User Registration
       const result = await createUser(email, password)
-      await saveOrUpdateUser({ name, email, image: imgURL })
+      await saveOrUpdateUser({ name, email, image,role})
 
-      //3. Save username & profile photo
-      // await updateUserProfile(
-      //   name,imgURL
-      // )
+      // 3. Save username & profile photo
+      await updateUserProfile(
+        name,image
+      )
       console.log(result)
 
       navigate(from, { replace: true })
@@ -81,8 +84,8 @@ console.log(data);
    <div className='flex justify-center items-center min-h-screen bg-white'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Sign Up</h1>
-          <p className='text-sm text-gray-400'>Welcome to PlantNet</p>
+          <h1 className='my-3 text-4xl font-bold'>Please Sign Up</h1>
+          {/* <p className='text-sm text-gray-400'>Welcome to PlantNet</p> */}
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -94,14 +97,15 @@ console.log(data);
 
             {/* name  */}
             <div>
-              <label htmlFor='email' className='block mb-2 text-sm'>
+              <label htmlFor='name' className='block mb-2 text-sm'>
                 Name
               </label>
+
               <input
                 type='text'
                 id='name'
-                placeholder='Enter Your Name Here'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900'
+                placeholder='Enter Your Name'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
                 data-temp-mail-org='0'
                 {...register('name',{required: 'Name is required',
                   maxLength: {
@@ -119,7 +123,7 @@ console.log(data);
 
             </div>
             {/* Image */}
-            <div>
+            {/* <div>
               <label
                 htmlFor='image'
                 className='block mb-2 text-sm font-medium text-gray-700'
@@ -145,9 +149,77 @@ console.log(data);
               <p className='mt-1 text-xs text-gray-400'>
                 PNG, JPG or JPEG (max 2MB)
               </p>
-            </div>
-            <div>
+            </div> */}
 
+             <div>
+              <label htmlFor='email' className='block mb-2 text-sm'>
+                PhotoURL
+              </label>
+
+              <input
+                type='text'
+                id='image'
+                placeholder='Enter Your image'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
+                data-temp-mail-org='0'
+                {...register('image',{required: 'Name is required',
+                  // maxLength: {
+                  //   value: 20,
+                  //   message: 'name cannot be too long'
+                  // },
+                })}
+              />
+
+              {errors.name && (
+                <p className='text-red-500 text-xs mt-1'>
+                  {errors.name.message}
+                </p>
+              )}
+
+            </div>
+
+            {/*  */}
+          
+<div>
+              <label htmlFor='role' className='block mb-2 text-sm'>
+                Role
+              </label>
+
+              <select
+              id='role'
+              {...register("role", {required: "Role is required"})}
+              className='select select-bordered w-full bg-sky-200'
+              defaultValue=""
+              >
+                <option value="" disabled>Select Role</option>
+                <option value="borrower">Borrower</option>
+                <option value="manager">Manager</option>
+              </select>
+              {errors.role && (
+                <p className='text-red-500 text-xs mt-1'>{errors.role.message}</p>
+              )}
+              </div>
+
+  {/* <select
+    id="role"
+    {...register("role", { required: "Role is required" })}
+    className="select select-bordered w-full bg-sky-200"
+    defaultValue=""
+  >
+    <option value="" disabled>
+      Select Role
+    </option>
+    <option value="borrower">Borrower</option>
+    <option value="manager">Manager</option>
+  </select>
+  {errors.role && (
+    <p className="text-red-500 text-xs mt-1">{errors.role.message}</p>
+  )}
+</div> */}
+
+
+
+            <div>
 
             {/* email  */}
               <label htmlFor='email' className='block mb-2 text-sm'>
@@ -156,8 +228,8 @@ console.log(data);
               <input
                 type='email'
                 id='email'
-                placeholder='Enter Your Email Here'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900'
+                placeholder='Enter Your Email'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
                 data-temp-mail-org='0'
                  {...register('email',{required: 'email is required',
                    pattern: {
@@ -186,12 +258,12 @@ console.log(data);
                 type='password'
                 autoComplete='new-password'
                 id='password'
-                placeholder='*******'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900'
+                placeholder='Enter Password'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
                  {...register('password',{required: 'password is required',
-                  minLength: {
-                    value:6,
-                    message: 'password must be 6 characters',
+                  pattern: {
+                    value: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
+                    message: 'password must be 6 characters,1 lowercase letter, 1 uppercase letter',
                   }
                  })}
               />
@@ -208,10 +280,10 @@ console.log(data);
           <div>
             <button
               type='submit'
-              className='bg-lime-500 w-full rounded-md py-3 text-white'
+              className='bg-sky-500 w-full rounded-md py-3 text-white'
             >
               {loading ? (
-                <TbFidgetSpinner className='animate-spin m-auto' />
+                <FaArrowRotateRight className='animate-spin m-auto' />
               ) : (
                 'Continue'
               )}
@@ -219,9 +291,9 @@ console.log(data);
           </div>
         </form>
         <div className='flex items-center pt-4 space-x-1'>
-          <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
+          {/* <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div> */}
           <p className='px-3 text-sm dark:text-gray-400'>
-            Signup with social accounts
+            Or
           </p>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>

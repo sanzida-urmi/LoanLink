@@ -1,38 +1,82 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router'
 import { GiReceiveMoney } from "react-icons/gi";
 import useAuth from '../../hooks/useAuth';
-import { DotLoader } from 'react-spinners';
+import { CircleLoader, DotLoader } from 'react-spinners';
 import { TbLayoutSidebarLeftExpand } from "react-icons/tb";
+import toast from 'react-hot-toast';
+import { FaArrowRotateRight } from 'react-icons/fa6';
 
 
 
 function Navbar() {
-      const { user, loading } = useAuth()
+
+const handleTheme=(isDark)=>{
+  const theme = isDark? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+};
+
+
+useEffect(()=>{
+  const savedTheme = localStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+},[])
+      const { user, loading,signOutUser,setLoading,setUser } = useAuth()
+      console.log(user);
+
+        const [status, setStatus] = useState(null);
+        const [feed, setFeed] = useState(null);
+
+        useEffect(() => {
+    if (!user?.email) return;
+
+    fetch(`http://localhost:3000/user/status/${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setStatus(data.status);
+        setFeed(data.feedback)
+      })
+      .catch(err => console.log(err));
+  }, [user]);
 
      const links = <>
     <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/">Home</NavLink></li>
-     <li className='font-semibold'><NavLink to="/movies"  className={({isActive})=> isActive ? "active" : ""} end>All-Loans</NavLink></li>
-  <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/movies/my-collection">About Us</NavLink></li>
-        <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/movies/add" >Contact</NavLink></li>
+     <li className='font-semibold'><NavLink to="/alllones"  className={({isActive})=> isActive ? "active" : ""} end>All-Loans</NavLink></li>
+  <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/about">About Us</NavLink></li>
+        <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/contact" >Contact</NavLink></li>
 
-        <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/dashboard" >Dashboard</NavLink></li>
+        <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/dashboard"
+
+        onClick={(e)=>{
+          if(status === 'suspend'){
+            e.preventDefault();
+            toast.error(`your account is suspended. You cannot access dashboard. ${feed}`);
+          }
+        }
+      }
+  
+  
+  >
+        
+        Dashboard</NavLink></li>
         </>
 
   const signouthandle = () => {
-        console.log("k")
-    //     setLoading(true);
-    // signOutUser()
-    //   .then(() => {
-    //     setLoading(false);
-    //     toast.success("successfully signout");
-    //     setUser(null);
-    //     navigate("/");
-    //   })
-    //   .catch((e) => {
-    //     toast.error(e.message);
-    //     console.log(e.message);
-    //   });
+        // console.log("k")
+        setLoading(true);
+    signOutUser()
+      .then(() => {
+        setLoading(false);
+        toast.success("successfully signout");
+        setUser(null);
+        // navigate("/");
+      })
+      .catch((e) => {
+        toast.error(e.message);
+        console.log(e.message);
+      });
   };
   return (
     <div className="navbar shadow-sm   bg-base-300 rounded-2xl mt-0  flex flex-col md:flex-row items-start gap-3 md:items-stretch">
@@ -58,7 +102,7 @@ function Navbar() {
          
       {loading ? (
           <div className='flex justify-center py-3'>
-            <DotLoader size={30} />
+            <CircleLoader  size={30} />
           </div>
         )
       
@@ -67,8 +111,8 @@ function Navbar() {
         <li className='flex flex-col mb-2'>
           <div className='flex items-center gap-3'>
               <img 
-              className='w-10 h-10 rounded-full border-2 border-red-300'
-              src={user.photoURL || "https://via.placeholder.com/88"} referrerPolicy='no-referrer' />
+              className='w-10 h-10 rounded-full border-1 border-sky-300'
+              src={user?.photoURL || "https://via.placeholder.com/88"} referrerPolicy='no-referrer' />
 
 
               <div>
@@ -114,6 +158,10 @@ function Navbar() {
           </ul>
 
     </div>
+
+
+
+
     <div className='flex flex-col sm:flex-row justify-center items-start'>
      
      <GiReceiveMoney size={35} />
@@ -129,7 +177,7 @@ function Navbar() {
     </ul>
     
      {loading ? (
-          <DotLoader color='#8b0000' className='mr-2' />
+          <CircleLoader color='#2e4482' className='mr-2' />
         ) : user ? 
         
                  (
@@ -138,13 +186,13 @@ function Navbar() {
 
 
                        <div tabIndex={0} role="button" className='btn btn-ghost btn-circle avatar'>
-              <div className='w-9 border-2 border-red-300 rounded-full'>
+              <div className='w-9 border-1 border-sky-300 rounded-full'>
                 <img referrerPolicy='no-referrer' src={user?.photoURL || "https://via.placeholder.com/88"} alt="" />
 
               </div>
             </div>
 
-                     <ul
+                     {/* <ul
            tabIndex="-1"
            className='menu menu-sm dropdown-content bg-red-300 rounded-box z-50 mt-3 w-52 p-2 shadow'>
 
@@ -156,10 +204,10 @@ function Navbar() {
 
               </div>
 
-              </ul>
+              </ul> */}
 </div>
 
-              <button onClick={signouthandle} className="btn wrap-anywhere  btn-info ">
+              <button onClick={signouthandle} className="btn wrap-anywhere btn-xs my-auto  btn-info ">
              <Link to="/login">Logout</Link>
            </button>  
               </div>
@@ -169,7 +217,7 @@ function Navbar() {
         
         : (
          
-          <button className="btn btn-info">
+          <button className="btn btn-info btn-xs">
             <Link to="/login">Login</Link>
           </button>
 
