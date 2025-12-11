@@ -14,7 +14,7 @@ function UpdateLoanForm() {
 
     const {id: loanid} = useParams();
 
-     const { data: loan = {}, isLoading, isFetching } = useQuery({
+     const { data: loan = {}, isLoading, isFetching,refetch } = useQuery({
         queryKey: ['loan', loanid],
         queryFn: async () => {
           const result = await axiosSecure(`${import.meta.env.VITE_API_URL}/loan/${loanid}`)
@@ -50,6 +50,7 @@ function UpdateLoanForm() {
          await axiosSecure.patch(
           `/loan/update/${loanid}`, {updateData}
         );
+        refetch();
         toast.success("updated successfully")
        } catch(error) {
         toast.error("could not updated")

@@ -47,7 +47,9 @@ useEffect(()=>{
   <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/about">About Us</NavLink></li>
         <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/contact" >Contact</NavLink></li>
 
-        <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/dashboard"
+        {
+user && (
+ <li className='font-semibold'><NavLink className={({isActive})=> isActive ? "active" : ""} end to="/dashboard"
 
         onClick={(e)=>{
           if(status === 'suspend'){
@@ -61,6 +63,10 @@ useEffect(()=>{
   >
         
         Dashboard</NavLink></li>
+)
+        }
+
+       
         </>
 
   const signouthandle = () => {
@@ -78,6 +84,8 @@ useEffect(()=>{
         console.log(e.message);
       });
   };
+
+
   return (
     <div className="navbar shadow-sm   bg-base-300 rounded-2xl mt-0  flex flex-col md:flex-row items-start gap-3 md:items-stretch">
 
@@ -108,6 +116,7 @@ useEffect(()=>{
       
       : user ? (
         <>
+
         <li className='flex flex-col mb-2'>
           <div className='flex items-center gap-3'>
               <img 

@@ -51,7 +51,7 @@ refetch()
 
 };
 
-if(loading || localLoading){
+if(loading || localLoading || isLoading || isFetching){
     return <LoadingSpinner></LoadingSpinner>
   }
 

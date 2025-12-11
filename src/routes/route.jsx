@@ -27,6 +27,7 @@ import ProfileManager from "../Pages/ManagerDashboard/ProfileManager";
 import BarChartStatus from '../Pages/BarChartStatus';
 import AboutPage from "../Pages/AboutPage";
 import Contact from "../Pages/Contact";
+import PrivateRoute from "../Private/PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -45,7 +46,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/loan/:id",
-        element: <LoanDetails/>
+        element: <PrivateRoute>
+         <LoanDetails/>
+         </PrivateRoute>
       },
       {
         path: "/loan/:id/apply",
@@ -76,59 +79,89 @@ export const router = createBrowserRouter([
      children: [
       {
         index: true,
-        element: <BarChartStatus/>
+        element: <PrivateRoute>
+        <BarChartStatus/>
+        </PrivateRoute> 
       },
       {
         path: "my-loans",
-        element: <MyLoan></MyLoan>
+        element: <PrivateRoute>
+          <MyLoan></MyLoan>
+        </PrivateRoute>
       },
       {
         path: "pending-loans",
-        element: <PendingLoans></PendingLoans>
+        element: 
+        // <PrivateRoute>
+          <PendingLoans></PendingLoans>
+        // </PrivateRoute>
       },
        {
         path: 'payment-success',
-        element: <PaymentSuccess />,
+        element: <PrivateRoute>
+          <PaymentSuccess />
+        </PrivateRoute>,
       },
        {
         path: "again/:id",
-        element: <CancelPay></CancelPay>
+        element: <PrivateRoute>
+           <CancelPay></CancelPay>
+        </PrivateRoute>
       },
        {
         path: "manage-users",
-        element: <ManageUsers></ManageUsers>
+        element: <PrivateRoute>
+          <ManageUsers></ManageUsers>
+        </PrivateRoute>
       },
        {
         path: "updateUser",
-        element: <Updateuser></Updateuser>
+        element: <PrivateRoute>
+          <Updateuser></Updateuser>
+        </PrivateRoute>
       },
        {
         path: "all-loan",
-        element: <AllLoan></AllLoan>
+        element: <PrivateRoute>
+          <AllLoan></AllLoan>
+        </PrivateRoute>
       },
        {
         path: "update-loan/:id",
-        element: <UpdateLoanForm></UpdateLoanForm>
+        element: <PrivateRoute>
+          <UpdateLoanForm></UpdateLoanForm>
+        </PrivateRoute>
       },
        {
         path: "loan-applications",
-        element: <LoanApllication></LoanApllication>
+        element: <PrivateRoute>
+          <LoanApllication></LoanApllication>
+        </PrivateRoute>
       },
        {
         path: "add-loan",
-        element: <AddLoan></AddLoan>
+        element: <PrivateRoute>
+          <AddLoan></AddLoan>
+        </PrivateRoute>
       },
        {
         path: "manage-loans",
-        element: <ManageLoan></ManageLoan>
+        element: <PrivateRoute>
+           <ManageLoan></ManageLoan>
+        </PrivateRoute>
       },
        {
         path: "approved-loans",
-        element: <ApprovedLoan></ApprovedLoan>
+        element:
+        //  <PrivateRoute>
+          <ApprovedLoan></ApprovedLoan>
+        // </PrivateRoute>
       },
        {
         path: "profile",
-        element: <ProfileManager></ProfileManager>
+        element: <PrivateRoute>
+          <ProfileManager></ProfileManager>
+        </PrivateRoute>
       },
     ]
   },{

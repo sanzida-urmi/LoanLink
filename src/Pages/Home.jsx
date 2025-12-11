@@ -130,6 +130,7 @@ function Home() {
 </div>
 </div>
 
+<h1 className='font-bold text-4xl mt-10 mb-5 text-sky-400 text-center'>Available Loans</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
          {loan.map(d => <Card d={d}/>)}
@@ -137,12 +138,15 @@ function Home() {
       </div>
 
       <h1 className='font-bold text-4xl mt-10 mb-5 text-sky-400 text-center'>How it works</h1>
+
       <ul>
         <li className='text-center'><span className='font-bold'>Browse Loans</span> - Explore available loan options and find the one that fits your needs.</li>
         <li className='text-center'><span className='font-bold'>Apply Online</span> - Fill out a simple application form with your details.</li>
         <li className='text-center'><span className='font-bold'>Verification & Approval</span> - Our team reviews your application and verifies your documents.</li>
         <li className='text-center'><span className='font-bold'>Receive Funds</span> - Once approved, the loan amount is transferred directly to your account.</li>
       </ul>
+
+      <h1 className='font-bold text-4xl mt-10 mb-5 text-sky-400 text-center'>Customer Feedback</h1>
 
       <div className='w-10/12 md:w-1/2 lg:w-1/3 mx-auto mt-10'>
       {cdata.length > 1 && (
@@ -198,7 +202,7 @@ function Home() {
 </div>
 
 
- <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 justify-items-center  items-center gap-10 my-10 border-2">
+ <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 justify-items-center  items-center gap-10 my-10 ">
 {service.map((d,idx) => <ServiceCard key={idx} d={d}/>)}
  </div>
   

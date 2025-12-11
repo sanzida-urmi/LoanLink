@@ -1,8 +1,10 @@
 // import Button from '../components/Shared/Button/Button'
 import { Link, useNavigate } from 'react-router'
 import Button from '../Component/Shared/Button'
+import Title from '../Component/Shared/Title'
 
 const ErrorPage = () => {
+   Title("Error")
   const navigate = useNavigate()
 
   return (

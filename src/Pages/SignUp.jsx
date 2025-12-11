@@ -105,7 +105,7 @@ console.log(data);
                 type='text'
                 id='name'
                 placeholder='Enter Your Name'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-sky-500 bg-gray-200 text-sky-500'
                 data-temp-mail-org='0'
                 {...register('name',{required: 'Name is required',
                   maxLength: {
@@ -122,34 +122,7 @@ console.log(data);
               )}
 
             </div>
-            {/* Image */}
-            {/* <div>
-              <label
-                htmlFor='image'
-                className='block mb-2 text-sm font-medium text-gray-700'
-              >
-                Profile Image
-              </label>
-              <input
-                name='image'
-                type='file'
-                id='image'
-                accept='image/*'
-                className='block w-full text-sm text-gray-500
-      file:mr-4 file:py-2 file:px-4
-      file:rounded-md file:border-0
-      file:text-sm file:font-semibold
-      file:bg-lime-50 file:text-lime-700
-      hover:file:bg-lime-100
-      bg-gray-100 border border-dashed border-lime-300 rounded-md cursor-pointer
-      focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-lime-400
-      py-2'
-       {...register('image')}
-              />
-              <p className='mt-1 text-xs text-gray-400'>
-                PNG, JPG or JPEG (max 2MB)
-              </p>
-            </div> */}
+          
 
              <div>
               <label htmlFor='email' className='block mb-2 text-sm'>
@@ -160,13 +133,10 @@ console.log(data);
                 type='text'
                 id='image'
                 placeholder='Enter Your image'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-sky-500 bg-gray-200 text-sky-500'
                 data-temp-mail-org='0'
                 {...register('image',{required: 'Name is required',
-                  // maxLength: {
-                  //   value: 20,
-                  //   message: 'name cannot be too long'
-                  // },
+                 
                 })}
               />
 
@@ -200,24 +170,7 @@ console.log(data);
               )}
               </div>
 
-  {/* <select
-    id="role"
-    {...register("role", { required: "Role is required" })}
-    className="select select-bordered w-full bg-sky-200"
-    defaultValue=""
-  >
-    <option value="" disabled>
-      Select Role
-    </option>
-    <option value="borrower">Borrower</option>
-    <option value="manager">Manager</option>
-  </select>
-  {errors.role && (
-    <p className="text-red-500 text-xs mt-1">{errors.role.message}</p>
-  )}
-</div> */}
-
-
+ 
 
             <div>
 
@@ -229,7 +182,7 @@ console.log(data);
                 type='email'
                 id='email'
                 placeholder='Enter Your Email'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-sky-500 bg-gray-200 text-sky-500'
                 data-temp-mail-org='0'
                  {...register('email',{required: 'email is required',
                    pattern: {
@@ -259,7 +212,7 @@ console.log(data);
                 autoComplete='new-password'
                 id='password'
                 placeholder='Enter Password'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-sky-500 bg-gray-200 text-sky-500'
                  {...register('password',{required: 'password is required',
                   pattern: {
                     value: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
@@ -309,7 +262,7 @@ console.log(data);
           Already have an account?{' '}
           <Link
             to='/login'
-            className='hover:underline hover:text-lime-500 text-gray-600'
+            className='hover:underline hover:text-sky-500 text-gray-600'
           >
             Login
           </Link>

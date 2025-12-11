@@ -70,7 +70,7 @@ function LoanDetails() {
 
 
 <div className="card-actions justify-end">
-        <button onClick={handleClick} className="btn btn-active  btn-info" disabled={role == '!borrower'}>Apply Now</button>
+        <button onClick={handleClick} className="btn btn-active  btn-info" disabled={role !== 'borrower'}>Apply Now</button>
     </div>
 
     

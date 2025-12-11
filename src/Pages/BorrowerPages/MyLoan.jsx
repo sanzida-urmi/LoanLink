@@ -19,7 +19,7 @@ const {user,loading,setLoading} = useAuth();
     const axiosSecure = useAxiosSecure()
 
 
-     const { data: loans = [], isLoading,isFetching } = useQuery({
+     const { data: loans = [], isLoading,isFetching, refetch } = useQuery({
     queryKey: ['userloan'],
     queryFn: async () => {
       const result = await axiosSecure.get(`${import.meta.env.VITE_API_URL}/myApplyLoan?email=${user?.email}`)
@@ -39,7 +39,8 @@ const handleCancel = async () => {
       method: 'DELETE',
     });
     if(res.ok){
-      setLoans(loans.filter(loan => loan._id !== selectedLoan._id));
+      refetch();
+      // setLoans(loans.filter(loan => loan._id !== selectedLoan._id));
       closeModal();
     } else {
       console.log("Dlt field");

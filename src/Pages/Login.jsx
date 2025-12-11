@@ -108,7 +108,7 @@ const Login = () => {
                 id='password'
                 required
                 placeholder='Enter Password'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-sky-500 bg-gray-200 text-sky-500'
               />
             </div>
           </div>
@@ -127,11 +127,7 @@ const Login = () => {
             </button>
           </div>
         </form>
-        {/* <div className='space-y-1'>
-          <button className='text-xs hover:underline hover:text-lime-500 text-gray-400 cursor-pointer'>
-            Forgot password?
-          </button>
-        </div> */}
+       
         <div className='flex items-center pt-4 space-x-1'>
           {/* <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div> */}
           <p className='px-3 text-sm dark:text-gray-400'>
