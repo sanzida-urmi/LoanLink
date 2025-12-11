@@ -32,7 +32,6 @@ function LoanDetails() {
   })
   console.log(loan);
 
-//    if (isLoading) return <LoadingSpinner />
   const { imgURL, title, shortDescription, maxLoanLimit, loanCategory, interest, emiPlans } = loan
 
   

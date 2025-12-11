@@ -88,30 +88,7 @@ function Applyform() {
       toast.error('cound not add');
     }
 
-    // fetch('http://localhost:3000/applyloan', {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(formData)
-    // })
-    // .then(res => res.json())
-    // .then(data=> {
-    //   // console.log(data)
-    //   setLoading(false);
-    //   toast.success('successfully apply');
-
-    //         setDimensions({width: window.innerWidth, height: document.body.scrollHeight})
-
-    //   setShowConfetti(true)
-    //   setTimeout(()=> setShowConfetti(false), 6000);
   
-    // })
-    // .catch(err => {
-    //   // console.log(err)
-    //   setLoading(false);
-    //   toast.error('cound not add');
-    // })
    
 
   }

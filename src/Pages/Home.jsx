@@ -24,8 +24,7 @@ function Home() {
 
  
    Title("Home")
-  //  const [role,isRoleLoading] = useRole();
-  //   console.log(role);
+ 
   const axiosSecure = useAxiosSecure()
 
   const { data: loan = [], isLoading } = useQuery({
@@ -44,7 +43,6 @@ function Home() {
  useEffect(()=>{
     fetch('http://localhost:3000/service').then(res=>res.json()).then(data => {
       setService(data);
-      // console.log(data);
     })
     .catch(err => {
       console.log(err);
@@ -71,9 +69,7 @@ function Home() {
   
   return (
     <div>
-     {/* <Helmet>
-      <title>Home</title>
-     </Helmet> */}
+    
          <div className='my-10'>
         <Swiper
   modules={[Pagination, Navigation,Autoplay]}

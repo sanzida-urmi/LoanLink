@@ -42,11 +42,6 @@ function AllLoan() {
   };
 
 
-// React.useEffect(()=>{
-// if(loan?.length > 0) {
-//   setLoans(loan);
-// }
-// },[loan])
 
    let [isOpen, setIsOpen] = useState(false)
     const closeModal = () => setIsOpen(false)
@@ -59,16 +54,10 @@ function AllLoan() {
 
         const res = await axiosSecure.delete(`oneloan/${selectedLoan._id}`);
 
-        // const res = await fetch(`http://localhost:3000/oneloan/${selectedLoan._id}`,{
-        //   method: 'DELETE',
-        // });
-        // if(res.data?.success){
                   refetch();
 
           closeModal();
-        // } else {
-        //   console.log("Dlt field");
-        // }
+        
       }  catch (err) {
         console.log(err);
       }

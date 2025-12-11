@@ -31,32 +31,16 @@ function PendingLoans() {
     },
   })
 
-    // useEffect(()=>{
-    //   setLoading(true);
-    //     fetch(`http://localhost:3000/applyloanspending?status=pending`)
-    //     .then(res => res.json())
-    //     .then(data =>{
-    //         setLoans(data);
-    //         setLoading(false);
-    //         console.log(data);
-    //     });
-    // },[user]);
-
-    
+       
 const handleStatus = async(id,newStatus)=>{
   setLocalLoading(true);
 
   try{
-    // const res = await fetch(`${import.meta.env.VITE_API_URL}/applyloan/status/${id}`,{
-    //   method: "PATCH",
-    //   headers:{ "Content-Type": "application/json"},
-    //   body: JSON.stringify({status: newStatus})
-    // });
+   
       const {data} = await axiosSecure.patch(`applyloan/status/${id}`,{status: newStatus});
     if(data.success){
       toast.success(`Loan ${newStatus}`);
 refetch()
-      // setLoans(prevLoans => prevLoans.filter(loan => loan._id !== id));
     }
   } catch (error) {
     toast.error("Failed to update status");

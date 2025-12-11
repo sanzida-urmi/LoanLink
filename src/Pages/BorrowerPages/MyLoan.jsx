@@ -28,34 +28,7 @@ const {user,loading,setLoading} = useAuth();
     },
   })
   
-// useEffect(()=>{
-//   setLoading(true);
-//     if(!user?.email) return;
 
-//      const { data: loans = [], isLoading } = useQuery({
-//     queryKey: ['userloan'],
-//     queryFn: async () => {
-//       const result = await axiosSecure.get(`${import.meta.env.VITE_API_URL}/myApplyLoan?email=${user?.email}`)
-//       setLoading(true);
-//       return result.data
-//     },
-//   })
-
-//     // try{
-//     //     const {data} = await axiosSecure.get(`/myApplyLoan?email=${user?.email}`);
-//     //   setLoading(false);
-//     //   console.log(data);
-//     // }
-//     // fetch(`http://localhost:3000/myApplyLoan?email=${user?.email}`)
-//     // .then(res => res.json())
-//     // .then(data =>{
-//     //     setLoans(data);
-//     //     setLoading(false);
-//     //     console.log(data);
-//     // });
-
-
-// },[user]);
 
 
 const [selectedLoan,setSelectedLoan] = useState(null);
