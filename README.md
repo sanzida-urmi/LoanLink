@@ -8,6 +8,14 @@ LoanLink is a web-based microloan request, review & approval management system.
 
 
 
+Purpose of the Project
+users can apply for different loan types
+Admin & Manager can manage loan applications
+Secure API with JWT authentication
+user dashboard & admin dashboard included
+
+
+
  key Features
  1.User Registration & Login (JWT Auth)
  2. Apply for loans
