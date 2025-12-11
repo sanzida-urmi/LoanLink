@@ -6,6 +6,7 @@ import {createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, 
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
+     const [myrole, setMyrole] = useState(null);
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [refetch, setRefecth] = useState(false)
@@ -60,7 +61,9 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         setUser,
         loading,
-        setLoading
+        setLoading,
+        setMyrole,
+        myrole
     }
 
    
