@@ -2,6 +2,8 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router'
 import toast from 'react-hot-toast'
 import { FcGoogle } from 'react-icons/fc'
 import { TbFidgetSpinner } from 'react-icons/tb'
+import { FaArrowRotateRight } from "react-icons/fa6";
+
 import useAuth from '../hooks/useAuth'
 import LoadingSpinner from '../Component/Shared/LoadingSpinner'
 import { saveOrUpdateUser } from '../utils'
@@ -13,11 +15,12 @@ const Login = () => {
 
   const from = location.state || '/'
 
-  if (loading) return <LoadingSpinner />
+  // if (loading) return <LoadingSpinner />
 //   if (user) return <Navigate to={from} replace={true} />
 
   // form submit handler
   const handleSubmit = async event => {
+    setLoading(true);
     event.preventDefault()
     console.log('sub')
     const form = event.target
@@ -37,7 +40,8 @@ const Login = () => {
       toast.success('Login Successful')
     } catch (err) {
       console.log(err)
-      toast.error(err?.message)
+      toast.error(err?.code)
+      setLoading(false)
     }
   }
 
@@ -65,10 +69,10 @@ const Login = () => {
     <div className='flex justify-center items-center min-h-screen bg-white'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
         <div className='mb-8 text-center'>
-          <h1 className='my-3 text-4xl font-bold'>Log In</h1>
-          <p className='text-sm text-gray-400'>
+          <h1 className='my-3 text-4xl font-bold'>Please Login</h1>
+          {/* <p className='text-sm text-gray-400'>
             Sign in to access your account
-          </p>
+          </p> */}
         </div>
         <form
           onSubmit={handleSubmit}
@@ -86,8 +90,8 @@ const Login = () => {
                 name='email'
                 id='email'
                 required
-                placeholder='Enter Your Email Here'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900'
+                placeholder='Enter Your Email'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-sky-500 bg-gray-200 text-sky-500'
                 data-temp-mail-org='0'
               />
             </div>
@@ -103,8 +107,8 @@ const Login = () => {
                 autoComplete='current-password'
                 id='password'
                 required
-                placeholder='*******'
-                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-gray-900'
+                placeholder='Enter Password'
+                className='w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-lime-500 bg-gray-200 text-sky-500'
               />
             </div>
           </div>
@@ -112,25 +116,26 @@ const Login = () => {
           <div>
             <button
               type='submit'
-              className='bg-lime-500 w-full rounded-md py-3 text-white'
+              className='bg-sky-500 w-full rounded-md py-3 text-white'
             >
               {loading ? (
-                <TbFidgetSpinner className='animate-spin m-auto' />
+                <FaArrowRotateRight
+                className='animate-spin m-auto' />
               ) : (
                 'Continue'
               )}
             </button>
           </div>
         </form>
-        <div className='space-y-1'>
+        {/* <div className='space-y-1'>
           <button className='text-xs hover:underline hover:text-lime-500 text-gray-400 cursor-pointer'>
             Forgot password?
           </button>
-        </div>
+        </div> */}
         <div className='flex items-center pt-4 space-x-1'>
-          <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
+          {/* <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div> */}
           <p className='px-3 text-sm dark:text-gray-400'>
-            Login with social accounts
+            Or
           </p>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>
         </div>
@@ -143,11 +148,11 @@ const Login = () => {
           <p>Continue with Google</p>
         </div>
         <p className='px-6 text-sm text-center text-gray-400'>
-          Don&apos;t have an account yet?{' '}
+          New to website?{' '}
           <Link
             state={from}
             to='/signup'
-            className='hover:underline hover:text-lime-500 text-gray-600'
+            className='hover:underline hover:text-sky-500 text-gray-600'
           >
             Sign up
           </Link>
