@@ -66,7 +66,7 @@ export default useAxiosSecure
 // import useAuth from './useAuth';
 
 // const axiosSecure = axios.create({
-//     baseURL: 'http://localhost:3000'
+//     baseURL: 'https://lonklinkserver.vercel.app'
 // })
 
 // function useAxiosSecure() {
@@ -132,7 +132,7 @@ export default useAxiosSecure
 
 // // Base axios instance
 // const axiosSecure = axios.create({
-//   baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000",
+//   baseURL: import.meta.env.VITE_API_URL || "https://lonklinkserver.vercel.app",
 //   withCredentials: true, // credentials সাথে যাবে
 // });
 

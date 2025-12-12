@@ -31,7 +31,7 @@ useEffect(()=>{
         useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/user/status/${user?.email}`)
+    fetch(`https://lonklinkserver.vercel.app/user/status/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);

@@ -17,7 +17,7 @@ function ApprovedLoan() {
     
     //  useEffect(()=>{
     //   setLoading(true)
-    //         fetch(`http://localhost:3000/applyloanspending?status=approved`)
+    //         fetch(`https://lonklinkserver.vercel.app/applyloanspending?status=approved`)
     //         .then(res => res.json())
     //         .then(data =>{
     //             setLoans(data);

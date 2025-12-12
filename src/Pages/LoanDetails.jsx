@@ -5,8 +5,10 @@ import { Link, useNavigate, useParams } from 'react-router';
 import LoadingSpinner from '../Component/Shared/LoadingSpinner';
 import useAuth from '../hooks/useAuth';
 import useRole from '../hooks/useRole';
+import Title from '../Component/Shared/Title';
 
 function LoanDetails() {
+  Title("Loan Details")
       const { user, loading} = useAuth()
       const [role,isRoleLoading] = useRole();
       console.log(role);

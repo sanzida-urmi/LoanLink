@@ -7,7 +7,7 @@ function ExportAppliedLoans(){
   const handleExport = async() =>{
     try{
       const response = await axios.get(
-        "http://localhost:3000/export-applied-loans",
+        "https://lonklinkserver.vercel.app/export-applied-loans",
         {
           responseType: 'blob',
         }
@@ -37,7 +37,7 @@ function ExportAppliedLoans(){
 //   const handleExport = async () => {
 //     try {
 //       const response = await axios.get(
-//         "http://localhost:3000/export-applied-loans",
+//         "https://lonklinkserver.vercel.app/export-applied-loans",
 //         {
 //           responseType: "blob", // important for file download
 //         }

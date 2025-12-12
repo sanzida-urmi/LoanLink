@@ -4,10 +4,12 @@ import toast from 'react-hot-toast';
 import { useLocation } from 'react-router';
 import LoadingSpinner from '../../Component/Shared/LoadingSpinner'
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import Title from '../../Component/Shared/Title';
 // import hh from "../";
 
 
 function Updateuser() {
+   Title("Update User")
     const [status, setStatus] = useState("");
     const [localLoading, setLocalLoading]= useState(false)
     const [reason, setReason] = useState("");

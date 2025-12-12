@@ -41,7 +41,7 @@ function Home() {
    const [service, setService] = useState([]);
 
  useEffect(()=>{
-    fetch('http://localhost:3000/service').then(res=>res.json()).then(data => {
+    fetch('https://lonklinkserver.vercel.app/service').then(res=>res.json()).then(data => {
       setService(data);
     })
     .catch(err => {
@@ -53,7 +53,7 @@ function Home() {
   const [cdata, cdataSet] = useState([]);
 
  useEffect(()=>{
-    fetch('http://localhost:3000/cmnt').then(res=>res.json()).then(data => {
+    fetch('https://lonklinkserver.vercel.app/cmnt').then(res=>res.json()).then(data => {
       cdataSet(data);
       console.log(data);
     })

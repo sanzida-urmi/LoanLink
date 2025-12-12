@@ -5,8 +5,10 @@ import toast from 'react-hot-toast';
 import { useLocation, useParams } from 'react-router'
 import LoadingSpinner from '../../Component/Shared/LoadingSpinner';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
+import Title from '../../Component/Shared/Title';
 
 function UpdateLoanForm() {
+   Title("Update Loan")
     // const location = useLocation();
     // const loanid = location.state?.id;
             const [localLoading, setLocalLoading]= useState(false)

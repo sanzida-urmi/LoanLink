@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router'
+import Title from "../Component/Shared/Title";
+
 
 function AboutPage() {
+     Title("About")
   return (
     <div>
       <div>

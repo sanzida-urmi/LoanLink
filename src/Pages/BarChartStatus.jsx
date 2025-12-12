@@ -7,14 +7,14 @@ import Title from "../Component/Shared/Title";
 
 function BarChartStatus()  {
 
-  Title("Dsahboard")
+  Title("Dashboard")
 
   const axiosSecure = useAxiosSecure()
 
   const {data, isLoading} = useQuery({
     queryKey: ["loanStatusCount"],
     queryFn: async ()=> {
-      const res = await axiosSecure.get("http://localhost:3000/loan/status-count");
+      const res = await axiosSecure.get("https://lonklinkserver.vercel.app/loan/status-count");
       return res.data;
     }
   })

@@ -5,9 +5,11 @@ import LoadingSpinner from '../Component/Shared/LoadingSpinner';
 import toast from 'react-hot-toast';
 import Confetti from 'react-confetti';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import Title from '../Component/Shared/Title';
 
 
 function Applyform() {
+  Title("Apply Loan")
             const { user,setLoading, loading} = useAuth()
 
     const [showConfetti, setShowConfetti] = useState(false);

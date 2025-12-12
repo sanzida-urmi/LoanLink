@@ -35,7 +35,7 @@ const [selectedLoan,setSelectedLoan] = useState(null);
 const handleCancel = async () => {
   if (!selectedLoan) return;
   try{
-    const res = await fetch(`http://localhost:3000/applyloan/${selectedLoan._id}`,{
+    const res = await fetch(`https://lonklinkserver.vercel.app/applyloan/${selectedLoan._id}`,{
       method: 'DELETE',
     });
     if(res.ok){
@@ -86,7 +86,7 @@ setTimeout(()=>{
 if(!modalLoan?._id) return
     document.getElementById('my_modal_5').showModal()
 
-    fetch(`http://localhost:3000/paidmodal/${modalLoan._id}`)
+    fetch(`https://lonklinkserver.vercel.app/paidmodal/${modalLoan._id}`)
     .then(res => res.json())
     .then(data =>{
         setPaidloan(data[0]);
