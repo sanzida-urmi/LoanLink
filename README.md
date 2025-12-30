@@ -9,10 +9,14 @@ This system provides separate dashboards for **Users**, **Managers**, and **Admi
 
 ---
 
-## 🌐 Live Links
+## Demo
 
-- **Client URL:** https://client-11-3146c.web.app  
-- **Server URL:** https://lonklinkserver.vercel.app  
+Live URL : https://client-11-3146c.web.app
+
+## 🖼️ Screenshots
+
+### Homepage Dashboard
+![LoanLink Pro Dashboard](https://i.ibb.co.com/kgXLSpm0/Screenshot-2025-12-30-211641.png)
 
 ---
 
@@ -87,72 +91,48 @@ This system provides separate dashboards for **Users**, **Managers**, and **Admi
 ## 🚀 Local Development Guide
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- npm / yarn
+- Node.js (version 18 or higher)
+- npm or yarn or pnpm
 - Git
 
----
+### Installation Steps
 
-### 1️⃣ Clone the Repository
-
-
-
-
-
-
+## 1. Clone the Repository
+```bash
+git clone https://github.com/sanzida-urmi/MovieMaster.git
+cd MovieMaster  
+```
 
 
-Microloan Request & Approval Tracker System
+## 2.  Install Dependencies
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
 
-LoanLink is a web-based microloan request, review & approval management system.
- Many small financial organizations, NGOs, and microloan providers struggle to maintain loan applications, verification, approvals, EMI schedules, and repayments in one streamlined system.
+## 3. Environment Variables Setup
+Create a .env file in the root directory and add:
 
- Live URL : https://client-11-3146c.web.app
- server URL: https://lonklinkserver.vercel.app
+```bash
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+```
 
+## 4. Run the Development Server
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
 
-
-Purpose of the Project
-users can apply for different loan types
-Admin & Manager can manage loan applications
-Secure API with JWT authentication
-user dashboard & admin dashboard included
-
-
-
- key Features
- 1.User Registration & Login (JWT Auth)
- 2. Apply for loans
- 3.Loan status tracking
- 4. Admin panel
- 5.View all loans
- 6. approve/ rejevt/delete loan
- 7.Manager panel
- 8.Secure axios interceptors
- 9. role based protected routes
- 10. CVS export for applied loans
- 11. Responsive UI
-
-
- NPM Packages Used
- Frontend
- 1.React
- 2.React Router DOM
- 3.Axios
- 4.Tanstack
- 5.React Router Hook
- 6.React Hot Toast
- 7.DaisyUI
- 8.Tailwind
-
- Backend
- 1.Express
- 2.MongoDB
- 3.JSON Web Token
- 4.CORS
- 5.dotenv
-
-
- How to run locally
- npm install
- npm run dev
+## 5. Open in Browser
+Visit: http://localhost:5173
