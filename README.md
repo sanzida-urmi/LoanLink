@@ -1,6 +1,8 @@
 # LoanLink 💸  
-### Microloan Request & Approval Tracker System
+## 📄 Short Description
+LoanLink is a web-based microloan request and approval management system that helps users, managers, and admins manage loan applications, approvals, EMI tracking, and repayments efficiently through secure, role-based dashboards.
 
+---
 ## 📖 Overview
 LoanLink is a web-based microloan request, review, and approval management system designed for small financial organizations, NGOs, and microloan providers.  
 It helps manage loan applications, verification, approvals, EMI tracking, and repayments in a centralized and secure platform.
@@ -87,6 +89,37 @@ Live URL : https://client-11-3146c.web.app
 - dotenv
 
 ---
+## 📦 Dependencies
+
+### Frontend Dependencies
+- react ^19.1.1
+- react-dom ^19.1.1  
+- react-router ^7.9.5
+- framer-motion ^12.23.24
+- react-icons ^5.5.0
+- react-hot-toast ^2.6.0
+- react-toastify ^11.0.5
+- react-spinners ^0.17.0
+- swiper ^12.0.3
+- styled-components ^6.1.19
+- sweetalert2 ^11.26.3
+
+### Styling & UI
+- tailwindcss ^4.1.17
+- @tailwindcss/vite ^4.1.17
+- daisyui ^5.4.7
+
+### Backend & Services
+- firebase ^12.5.0
+- dotenv ^17.2.3
+- helmet ^8.1.0
+
+### Development Dependencies
+- vite ^7.1.7
+- @vitejs/plugin-react ^5.0.4
+- eslint ^9.36.0
+- @types/react ^19.1.16
+- @types/react-dom ^19.1.9
 
 ## 🚀 Local Development Guide
 
@@ -99,18 +132,15 @@ Live URL : https://client-11-3146c.web.app
 
 ## 1. Clone the Repository
 ```bash
-git clone https://github.com/sanzida-urmi/MovieMaster.git
-cd MovieMaster  
+git clone https://github.com/sanzida-urmi/LoanLink.git
+cd LoanLink  
 ```
 
 
 ## 2.  Install Dependencies
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
+
 ```
 
 ## 3. Environment Variables Setup
@@ -128,10 +158,7 @@ VITE_FIREBASE_APP_ID=your_app_id
 ## 4. Run the Development Server
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+
 ```
 
 ## 5. Open in Browser
