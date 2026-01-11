@@ -23,7 +23,7 @@ export default function Animation (){
   },[]);
 
   return (
-    <h1 className="text-4xl font-bold text-center mt-20 overflow-hidden">
+    <h1 className="text-4xl font-bold text-center mt-5 overflow-hidden">
       {text.split("").map((letter, i) => (
         <span
         key={i}

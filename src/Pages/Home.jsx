@@ -70,7 +70,7 @@ function Home() {
   return (
     <div>
     
-         <div className='my-10'>
+         <div className='mt-10'>
         <Swiper
   modules={[Pagination, Navigation,Autoplay]}
   spaceBetween={50}
@@ -132,7 +132,7 @@ function Home() {
 
 <h1 className='font-bold text-4xl mt-10 mb-5 text-sky-400 text-center'>Available Loans</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
          {loan.map(d => <Card d={d}/>)}
 
       </div>

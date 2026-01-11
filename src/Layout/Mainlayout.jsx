@@ -6,7 +6,9 @@ import Footer from '../Component/Shared/Footer'
 function Mainlayout() {
   return (
     <div className='flex flex-col min-h-screen px-7'>
-      <Navbar></Navbar>
+      <div className='sticky top-0 z-50'>
+        <Navbar></Navbar>
+      </div>
       <div className='flex-grow'>
         <Outlet></Outlet>
       </div>

@@ -64,7 +64,7 @@ function Applyform() {
       status: "pending",
       fee: "unpaid",
       email : e.target.email.value,
-      title: e.target.title.value,
+      // title: e.target.title.value,
       loanCategory: e.target.loanCategory.value,
       loanID : id,
     //   interest: e.target.interest.value,

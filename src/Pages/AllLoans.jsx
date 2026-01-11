@@ -21,7 +21,7 @@ function AllLoans() {
  
   const [searchText,setSearchText] = useState("");
   const [currentPage,setCurrentPage] = useState(1);
-  const loansPerPage = 6;
+  const loansPerPage = 8;
 
     if(isLoading){
     return <LoadingSpinner></LoadingSpinner>
@@ -54,7 +54,7 @@ const handleSearch = (e) => {
         className='input input-bodered w-full max-w-xs' />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mt-10">
          {currentLoans.map(d => <AllSingleCard key={d._id}  d={d}/>)}
 
       </div>
